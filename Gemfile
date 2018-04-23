@@ -1,6 +1,5 @@
-source "https://rubygems.org"
+source "https://rubygems.org" do
+    gem 'rest-client'
+end
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# Specify your gem's dependencies in find_apartment.gemspec
-gemspec
