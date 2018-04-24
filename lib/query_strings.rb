@@ -32,15 +32,12 @@ class QueryStrings
         range_of_prices.each_index do |ind|
             break if (ind == (range_of_prices.length - 1)) # you can't create range for the last price anymore
             
-            query_string = @immoweb_url + "minprice=" + range_of_prices[ind] + "&maxprice=" + range_of_prices[ind + 1] + "&minroom=" + @nr_bedrooms + "&maxroom=" + @nr_bedrooms
+            query_string = create_query_string(min_price = range_of_prices[ind],
+                                               max_price = range_of_prices[ind + 1])
             query_strings << query_string
         end
         
         return query_strings
-    end
-    
-    private def range_of_pages
-        
     end
     
 end
