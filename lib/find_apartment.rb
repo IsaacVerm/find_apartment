@@ -1,13 +1,12 @@
-require_relative "./query_strings_builder"
+require_relative "./query_strings"
 
-# criteria
-query_strings_builder = QueryStringsBuilder.new(start_price = 700, stop_price = 1300, interval = 50)
+# query strings
+query_strings_builder = QueryStrings.new(nr_bedrooms = 2, start_price = 700, stop_price = 1300, interval = 50)
 query_strings = query_strings_builder.create_query_strings
-puts query_strings
 
-
-
-# request
+# requests
+first_page =
+puts first_page
 
 # parse json
 
