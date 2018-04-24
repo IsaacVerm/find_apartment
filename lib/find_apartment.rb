@@ -1,15 +1,11 @@
-require_relative "./query_strings"
+# load gems
+require 'rest-client'
+require 'nokogiri'
 
-# query strings
-query_strings_builder = QueryStrings.new(nr_bedrooms = 2, start_price = 700, stop_price = 1300, interval = 50)
-query_strings = query_strings_builder.create_query_strings
+# load own code
+require_relative "./query_string"
+require_relative "./range_builder"
+require_relative "./range_of_query_strings"
 
-# requests
-first_page =
-puts first_page
+# execute
 
-# parse json
-
-# extract fields
-
-# save to database
