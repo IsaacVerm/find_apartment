@@ -1,18 +1,22 @@
 RSpec.describe Fields do
     
-    query_strings_builder = QueryStrings.new(nr_bedrooms = 2, start_price = 700, stop_price = 900, interval = 100)
-    query_strings = query_strings_builder.create_query_strings
-    
-    listing = Listing.new(query_strings)
-    page = listing.get_page(query_string = "https://www.immoweb.be/nl/zoek/appartement/te-huur/brussel?minprice=800&maxprice=1000&minroom=2&maxroom=2",
-                            page_nr = "1")
-    
     context OverviewFields do
         
+        url = OverviewUrl.new(min_price = 900, max_price = 950, nr_bedrooms = 2, page_nr = 2).create_url
+        page = Request.new(url).get_page
         overview_fields = OverviewFields.new(page)
-        fields_to_parse = ["current_page_nr","nr_of_pages"]
+        
+        it "parse_listing_urls" do
+            listing_urls = overview_fields.parse_listing_urls
+            
+            listing_url_regex = /https:\/\/www.immoweb.be\/.*id\d{7}/
+            
+            expect(listing_urls).to all(match listing_url_regex)
+        end
         
         context "parse_field" do
+            
+            fields_to_parse = ["current_page_nr","nr_of_pages"]
             
             it "returns the text value" do
                 fields_to_parse.each do |field|
