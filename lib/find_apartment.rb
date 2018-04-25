@@ -1,6 +1,7 @@
 # load gems
 require 'rest-client'
 require 'nokogiri'
+require 'csv'
 
 # load own code
 require_relative "./url"
