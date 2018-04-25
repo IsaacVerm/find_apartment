@@ -27,6 +27,7 @@ RSpec.describe Fields do
             end
             
             it "throws an error if the field doesn't exist" do
+                pending("to add")
             end
             
         end
@@ -34,10 +35,26 @@ RSpec.describe Fields do
     
     context ListingFields do
         
-        it "returns the text value" do
-        end
+        page = Request.new("https://www.immoweb.be/nl/zoekertje/gelijkvloerse-verdieping/te-huur/jette/1090/id7425190").get_page
+        listing_fields = ListingFields.new(page)
         
-        it "throws an error if the field doesn't exist" do
+        context "parse_field" do
+            
+            fields_to_parse = ["muncipality","availability_date","construction_year","floors","current_state","habitable_area","rent","charges","energy_consumption"]
+        
+            it "returns the text value" do
+                fields_to_parse.each do |field|
+                    parsed_field = listing_fields.parse_field(field)
+                    puts parsed_field
+
+                    expect(parsed_field).to be_kind_of(String)
+                end
+            end
+            
+            it "throws an error if the field doesn't exist" do
+                pending("to add")
+            end
+        
         end
     end
         
