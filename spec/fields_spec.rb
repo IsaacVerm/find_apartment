@@ -26,10 +26,6 @@ RSpec.describe Fields do
                 end
             end
             
-            it "throws an error if the field doesn't exist" do
-                pending("to add")
-            end
-            
         end
         
     end
@@ -49,10 +45,6 @@ RSpec.describe Fields do
 
                     expect(parsed_field).to be_kind_of(String)
                 end
-            end
-            
-            it "throws an error if the field doesn't exist" do
-                pending("to add")
             end
         
         end
