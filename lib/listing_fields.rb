@@ -8,7 +8,7 @@ class ListingFields < Fields
         financial_xpath = "//div[@id='financial-section']"
         energy_xpath = "//div[@id='energy-section']"
         
-        @field_xpaths = {"postal_code" => "//span[@id='propertyPage-title-address-output']",
+        @field_xpaths = {"address" => "//*[@id='propertyPage-title-address-output']",
                          "availability_date" => overview_xpath + "//tr[@aria-label='general-transactionDetails-availabilityDate']/td", # overview
                          "construction_year" => overview_xpath + "//tr[@aria-label='general-buildingDescription-constructionYear']/td",
                          "floors" => overview_xpath + "//tr[@aria-label='general-buildingDescription-floorCount']/td",

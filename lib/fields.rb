@@ -20,6 +20,7 @@ class Fields
             fields[name] = value
         end
         
+        puts fields
         return(fields)
     end
     

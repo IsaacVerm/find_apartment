@@ -27,7 +27,7 @@ RSpec.describe Save do
             save.save_to_csv
             expect(save.listings_exists?).to be true
             
-            remove_test_data_directory
+            # remove_test_data_directory
     end
     
 end
