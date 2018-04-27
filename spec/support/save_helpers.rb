@@ -12,10 +12,4 @@ module SaveHelpers
         Dir.exist?(Save::TEST_DATA_PATH)
     end
     
-    def listings_exists?
-        File.exist?(Save::TEST_DATA_PATH + "listings.csv")
-    end
-    
-    
-    
 end

@@ -4,31 +4,30 @@ RSpec.describe Save do
     listing_fields = ListingFields.new(page)
     parsed_fields = listing_fields.parse_all_fields
     
-    save = Save.new(parsed_fields)
+    save = Save.new(parsed_fields, environment = "test")
     
-    # it "current_datetime" do
-    #     datetime_regex = /\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}/
+    it "current_datetime" do
+        datetime_regex = /\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}/
         
-    #     expect(save.current_datetime).to match(datetime_regex)
-    # end
+        expect(save.current_datetime).to match(datetime_regex)
+    end
     
-    # it "create_empty_csv_with_only_headers" do
-    #     create_test_data_directory unless test_data_directory_exists?
+    it "create_empty_listings_with_only_headers" do
+        create_test_data_directory unless test_data_directory_exists?
         
-    #     save.create_empty_csv_with_only_headers(use_separate_test_folder = TRUE)
-    #     expect(listings_exists?).to be true
+        save.create_empty_listings_with_only_headers
+        expect(save.listings_exists?).to be true
         
-    #     remove_test_data_directory
-    # end
+        remove_test_data_directory
+    end
     
-    context "save_to_csv" do
-        
-        save.save_to_csv
-        
-        it "saves as csv" 
-        it "saved in data folder"
-        it "has headers"
-        
+    it "saves as csv" do
+            create_test_data_directory unless test_data_directory_exists?
+            
+            save.save_to_csv
+            expect(save.listings_exists?).to be true
+            
+            remove_test_data_directory
     end
     
 end
